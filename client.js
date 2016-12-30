@@ -5,15 +5,12 @@ const Client = require('node-ssdp').Client;
 
 let client = new Client();
 let app = express();
-var a = 10;
 
 client.on('response', function (headers, statusCode, rinfo) {
-    a+=1;
 });
 
-app.get('/SeatManager', function (req, res) {
+app.get('/', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
-    res.send(a);
 });
 
 app.listen(3000, function () {
