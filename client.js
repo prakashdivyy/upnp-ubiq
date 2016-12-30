@@ -4,20 +4,15 @@ const express = require('express');
 const Client = require('node-ssdp').Client;
 const sleep = require('sleep');
 
-let client = new Client();
 let app = express();
-let dev = "";
-
-client.on('response', function (headers, statusCode, rinfo) {
-    dev = headers.LOCATION;
-    //console.log(JSON.stringify(headers));
-    //console.log(dev);
-});
 
 app.get('/', function (req, res) {
+    let client = new Client();
+    client.on('response', function (headers, statusCode, rinfo) {
+        let dev = headers.LOCATION;
+        res.send(dev);
+    });
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
-    sleep.sleep(1);
-    res.send(dev);
 });
 
 app.listen(3000, function () {
