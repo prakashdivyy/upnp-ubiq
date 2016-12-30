@@ -10,11 +10,12 @@ let dev = "";
 client.on('response', function (headers, statusCode, rinfo) {
     dev = headers.LOCATION;
     //console.log(JSON.stringify(headers));
-    console.log(dev);
+    //console.log(dev);
 });
 
 app.get('/', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
+    setTimeout(function(){}, 500);
     res.send(dev);
 });
 
