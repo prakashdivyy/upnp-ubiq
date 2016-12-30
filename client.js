@@ -5,14 +5,17 @@ const Client = require('node-ssdp').Client;
 
 let client = new Client();
 let app = express();
+let dev = "";
 
 client.on('response', function (headers, statusCode, rinfo) {
-    console.log(JSON.stringify(headers));
+    dev = headers.LOCATION;
+    //console.log(JSON.stringify(headers));
+    console.log(dev);
 });
 
 app.get('/', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
-    res.send('Hello World');
+    res.send(dev);
 });
 
 app.listen(3000, function () {
