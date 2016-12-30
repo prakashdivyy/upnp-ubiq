@@ -2,7 +2,6 @@
 
 const express = require('express');
 const Client = require('node-ssdp').Client;
-const sleep = require('sleep');
 
 let app = express();
 
