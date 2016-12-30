@@ -5,7 +5,7 @@ const Client = require('node-ssdp').Client;
 
 let client = new Client();
 let app = express();
-let a = 10;
+var a = 10;
 
 client.on('response', function (headers, statusCode, rinfo) {
     a+=1;
