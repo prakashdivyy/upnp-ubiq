@@ -7,10 +7,12 @@ let client = new Client();
 let app = express();
 
 client.on('response', function (headers, statusCode, rinfo) {
+    console.log(JSON.stringify(headers));
 });
 
 app.get('/', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
+    res.send('Hello World');
 });
 
 app.listen(3000, function () {
