@@ -2,6 +2,7 @@
 
 const express = require('express');
 const Client = require('node-ssdp').Client;
+const sleep = require('sleep');
 
 let client = new Client();
 let app = express();
@@ -15,7 +16,7 @@ client.on('response', function (headers, statusCode, rinfo) {
 
 app.get('/', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SeatManager:1');
-    setTimeout(function(){}, 500);
+    sleep.sleep(1);
     res.send(dev);
 });
 
