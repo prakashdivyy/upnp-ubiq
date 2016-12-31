@@ -28,7 +28,7 @@ app.get('/ac', function (req, res) {
 });
 
 app.get('/lamp', function (req, res) {
-    res.send('IP Lampu');
+    res.send('10.10.100.203');
 });
 
 app.listen(3000, function () {
