@@ -24,7 +24,7 @@ app.get('/door', function (req, res) {
 });
 
 app.get('/ac', function (req, res) {
-    res.send('IP AC');
+    res.send('10.10.100.204');
 });
 
 app.get('/lamp', function (req, res) {
