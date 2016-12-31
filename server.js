@@ -6,6 +6,7 @@ let server = new SSDP({
 });
 
 server.addUSN('upnp:rootdevice');
+server.addUSN('urn:schemas-upnp-org:device:SmartDoorManager:1');
 
 server.on('advertise-alive', function (heads) {
  

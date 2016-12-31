@@ -23,6 +23,14 @@ app.get('/door', function (req, res) {
     client.search('urn:schemas-upnp-org:device:SmartDoorManager:1');
 });
 
+app.get('/ac', function (req, res) {
+    res.send('IP AC');
+});
+
+app.get('/lamp', function (req, res) {
+    res.send('IP Lampu');
+});
+
 app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+    console.log('UPnP Discovery Server Working');
 });
